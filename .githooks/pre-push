@@ -1,0 +1,12 @@
+#!/bin/sh
+# Example local pre-push hook: run detect-secrets if installed
+if command -v detect-secrets >/dev/null 2>&1; then
+  echo "Running detect-secrets scan..."
+  detect-secrets scan > .secrets.baseline
+  if ! detect-secrets audit .secrets.baseline >/dev/null 2>&1; then
+    echo "Potential secrets found. Review .secrets.baseline and abort push if necessary."
+    exit 1
+  fi
+fi
+
+exit 0

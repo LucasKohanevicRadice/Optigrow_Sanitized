@@ -1,0 +1,28 @@
+{
+  "name": "optigro_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "lint": "eslint . --ext .js,.jsx",
+    "commit": "node ../scripts/commit.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "dotenv-expand": "^12.0.3",
+    "express": "^4.19.2",
+    "mongodb": "6.16",
+    "mongoose": "^8.5.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "cross-env": "^10.0.0"
+  }
+}

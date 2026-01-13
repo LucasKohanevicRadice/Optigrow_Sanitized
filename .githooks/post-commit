@@ -1,0 +1,9 @@
+#!/bin/sh
+# regenerate copilot manifest after each commit (no-fail)
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo .)"
+cd "$REPO_ROOT" || exit 0
+if command -v node >/dev/null 2>&1; then
+  node ./scripts/generate-manifest.js || true
+  node ./scripts/generate-copilot-readme.js || true
+fi
+exit 0

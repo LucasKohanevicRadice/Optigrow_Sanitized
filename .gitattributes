@@ -1,0 +1,7 @@
+# normalize text files and force LF in repository
+*.js    text
+*.jsx   text
+*.json  text
+*.md    text eol=lf
+*.sh    text eol=lf
+README.md text eol=lf

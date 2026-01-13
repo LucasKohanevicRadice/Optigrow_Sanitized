@@ -1,0 +1,11 @@
+#!/bin/sh
+# prepare-commit-msg hook: prompt to run Copilot generators before the commit message editor opens
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || echo .)"
+cd "$REPO_ROOT" || exit 0
+
+# run runner interactively; if it fails, abort the commit
+if command -v node >/dev/null 2>&1; then
+  node ./scripts/copilot-precommit-runner.js --interactive || exit $?
+fi
+
+exit 0
